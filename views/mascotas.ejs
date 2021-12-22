@@ -2,28 +2,43 @@
 <body>
     <%- include('templates/nav') %> 
     <div class="container">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Descripcion</th>
-                <th scope="col">Accion</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% if (arrayMascotas.length > 0) { %>
+      <h1>Crud Mongo</h1>
+      <a class= "btn btn-success btn-block" href="/mascotas/crear">Crear Nueva Mascota</a>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+            <% if (arrayMascotas.length > 0) { %>
                 <% arrayMascotas.forEach(mascota => { %>
+                    
                     <tr>
-                        <th scope="row"><%= mascota.id %></th>
-                        <td><%= mascota.nombre %> </td>
+                        <th scope="row"><%= mascota.id %> </th>
+                        <td><%= mascota.nombre %></td>
                         <td><%= mascota.descripcion %></td>
-                        <td>@mdo</td>
-                      </tr>
+                        <td><%= mascota.edad %></td>
+                        <td>
+                            <a 
+                                href="mascotas/<%= mascota.id %>"
+                                class="btn btn-warning btn-sm"
+                            >
+                                Editar
+                            </a>
+                        </td>
+                    </tr>
+                
                 <% }) %>
             <% } %>
-            </tbody>
-        </table>
+
+        </tbody>
+      </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

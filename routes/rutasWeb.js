@@ -9,8 +9,8 @@ router.get('/servicios', (req, res) => {
     res.render('servicios', {tituloServicios: "Bienvenidos a la pagina de servicios"})
 })
 
-router.get('/', (req, res) => {
-    res.render('mascotas', {tituloMascotas: "Bienvenidos a la pagina de mascotas"})
+router.get('/crear', (req, res) => {
+    res.render('crear')
 })
 
 module.exports = router
